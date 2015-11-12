@@ -1,7 +1,7 @@
 
 %global		_hardened_build 1
 
-Name:		ntirpc
+Name:		libntirpc
 Version:	1.3.1
 Release:	1%{?dev_version:%{dev_version}}%{?dist}
 Summary:	New Transport Independent RPC Library
@@ -15,7 +15,7 @@ BuildRequires:	cmake
 BuildRequires:	krb5-devel
 
 %description
-This package contains a new implementation of the original libtirpc,
+This package contains a new implementation of the original libtirpc, 
 transport-independent RPC (TI-RPC) library for NFS-Ganesha. It has
 the following features not found in libtirpc:
  1. Bi-directional operation
@@ -30,7 +30,6 @@ the following features not found in libtirpc:
 %package devel
 Summary:	Development headers for %{name}
 Requires:	%{name}%{?_isa} = %{version}
-Provides:	libntirpc-devel = %{version}
 
 %description devel
 Development headers and auxiliary files for developing with %{name}.
@@ -47,9 +46,9 @@ make %{?_smp_mflags}
 ## make install is broken in various ways
 ## make install DESTDIR=%%{buildroot}
 mkdir -p %{buildroot}%{_libdir}/pkgconfig
-install -p -m 0755 src/libntirpc.so.%{version} %{buildroot}%{_libdir}/
-ln -s libntirpc.so.%{version} %{buildroot}%{_libdir}/libntirpc.so.1
-ln -s libntirpc.so.%{version} %{buildroot}%{_libdir}/libntirpc.so
+install -p -m 0755 src/%{name}.so.%{version} %{buildroot}%{_libdir}/
+ln -s %{name}.so.%{version} %{buildroot}%{_libdir}/%{name}.so.1
+ln -s %{name}.so.%{version} %{buildroot}%{_libdir}/%{name}.so
 mkdir -p %{buildroot}%{_includedir}/ntirpc
 cp -a ntirpc %{buildroot}%{_includedir}/
 install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
@@ -70,6 +69,9 @@ install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
 %{_libdir}/pkgconfig/libntirpc.pc
 
 %changelog
+* Thu Nov 12 2015 Niels de Vos <ndevos@redhat.com> - 1.3.1-1
+- Rename back to libntirpc, Fedora will keep that name
+
 * Fri Oct 30 2015 Niels de Vos <ndevos@redhat.com> - 1.3.1-1
 - Import from current Fedora Rawhide libntirpc package
 - Disable jemalloc usage
