@@ -3,7 +3,7 @@
 
 Name:		libntirpc
 Version:	1.3.1
-Release:	1%{?dev_version:%{dev_version}}%{?dist}
+Release:	2%{?dev_version:%{dev_version}}%{?dist}
 Summary:	New Transport Independent RPC Library
 Group:		System Environment/Libraries
 License:	BSD
@@ -69,6 +69,9 @@ install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
 %{_libdir}/pkgconfig/libntirpc.pc
 
 %changelog
+* Fri Apr 22 2016 Niels de Vos <ndevos@redhat.com> - 1.3.1-2
+- Rebuild for Aarch64
+
 * Thu Nov 12 2015 Niels de Vos <ndevos@redhat.com> - 1.3.1-1
 - Rename back to libntirpc, Fedora will keep that name
 
