@@ -2,8 +2,8 @@
 %global		_hardened_build 1
 
 Name:		libntirpc
-Version:	1.4.3
-Release:	2%{?dev_version:%{dev_version}}%{?dist}
+Version:	1.5.1
+Release:	1%{?dev_version:%{dev_version}}%{?dist}
 Summary:	New Transport Independent RPC Library
 Group:		System Environment/Libraries
 License:	BSD
@@ -69,6 +69,9 @@ install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
 %{_libdir}/pkgconfig/libntirpc.pc
 
 %changelog
+* Tue May 30 2017 Niels de Vos <ndevos@redhat.com> - 1.5.1-1
+- update libntirpc to 1.5.1 for NFS-Ganesha 2.5
+
 * Wed Nov 23 2016 Niels de Vos <ndevos@redhat.com> - 1.4.3-2
 - rebuilt for CentOS 6, now i686 architecture (not i386)
 
