@@ -2,8 +2,8 @@
 %global		_hardened_build 1
 
 Name:		libntirpc
-Version:	1.5.1
-Release:	2%{?dev_version:%{dev_version}}%{?dist}
+Version:	1.5.2
+Release:	1%{?dev_version:%{dev_version}}%{?dist}
 Summary:	New Transport Independent RPC Library
 Group:		System Environment/Libraries
 License:	BSD
@@ -69,6 +69,9 @@ install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
 %{_libdir}/pkgconfig/libntirpc.pc
 
 %changelog
+* Thu Jun 1 2017 Niels de Vos <ndevos@redhat.com> - 1.5.2-1
+- Update to version 1.5.2
+
 * Wed May 31 2017 Niels de Vos <ndevos@redhat.com> - 1.5.1-2
 - Rebuild for i686 architecture (was i386)
 
