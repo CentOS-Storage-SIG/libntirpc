@@ -2,7 +2,7 @@
 %global		_hardened_build 1
 
 Name:		libntirpc
-Version:	1.4.3
+Version:	1.4.4
 Release:	1%{?dev_version:%{dev_version}}%{?dist}
 Summary:	New Transport Independent RPC Library
 Group:		System Environment/Libraries
@@ -69,6 +69,9 @@ install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
 %{_libdir}/pkgconfig/libntirpc.pc
 
 %changelog
+* Fri Jun 2 2017 Niels de Vos <ndevos@redhat.com> - 1.4.4-1
+- update libntirpc to 1.4.4
+
 * Tue Nov 22 2016 Niels de Vos <ndevos@redhat.com> - 1.4.3-1
 - update libntirpc to 1.4.3 for NFS-Ganesha 2.4
 
