@@ -2,8 +2,8 @@
 %global		_hardened_build 1
 
 Name:		libntirpc
-Version:	1.5.4
-Release:	1%{?dev_version:%{dev_version}}%{?dist}
+Version:	1.6.1
+Release:	1%{?dev:%{dev}}%{?dist}
 Summary:	New Transport Independent RPC Library
 Group:		System Environment/Libraries
 License:	BSD
@@ -11,8 +11,14 @@ Url:		https://github.com/nfs-ganesha/ntirpc
 
 Source0:	https://github.com/nfs-ganesha/ntirpc/archive/v%{version}/ntirpc-%{version}.tar.gz
 
-BuildRequires:	cmake
+BuildRequires:	gcc cmake
 BuildRequires:	krb5-devel
+%if ( 0%{?fedora} && 0%{?fedora} > 27 )
+BuildRequires:  libnsl2-devel
+%endif
+# libtirpc has /etc/netconfig, most machines probably have it anyway
+# for NFS client
+Requires:	libtirpc
 
 %description
 This package contains a new implementation of the original libtirpc, 
@@ -69,6 +75,9 @@ install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
 %{_libdir}/pkgconfig/libntirpc.pc
 
 %changelog
+* Fri Feb 9 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.6.1-1
+- libntirpc 1.6.1 GA
+
 * Mon Jan 29 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.5.4-1
 - libntirpc 1.5.4 GA
 
