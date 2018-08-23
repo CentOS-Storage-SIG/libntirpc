@@ -2,7 +2,7 @@
 %global		_hardened_build 1
 
 Name:		libntirpc
-Version:	1.6.2
+Version:	1.6.3
 Release:	1%{?dev:%{dev}}%{?dist}
 Summary:	New Transport Independent RPC Library
 Group:		System Environment/Libraries
@@ -75,6 +75,9 @@ install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
 %{_libdir}/pkgconfig/libntirpc.pc
 
 %changelog
+* Thu Aug 23 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.6.3-1
+- libntirpc 1.6.3 GA
+
 * Wed Mar 21 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.6.2-1
 - libntirpc 1.6.2 GA
 
