@@ -2,10 +2,9 @@
 %global		_hardened_build 1
 
 Name:		libntirpc
-Version:	1.6.3
+Version:	1.7.2
 Release:	1%{?dev:%{dev}}%{?dist}
 Summary:	New Transport Independent RPC Library
-Group:		System Environment/Libraries
 License:	BSD
 Url:		https://github.com/nfs-ganesha/ntirpc
 
@@ -59,10 +58,6 @@ mkdir -p %{buildroot}%{_includedir}/ntirpc
 cp -a ntirpc %{buildroot}%{_includedir}/
 install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
 
-%post -p /sbin/ldconfig
-
-%postun -p /sbin/ldconfig
-
 %files
 %{_libdir}/libntirpc.so.*
 %{!?_licensedir:%global license %%doc}
@@ -75,39 +70,121 @@ install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
 %{_libdir}/pkgconfig/libntirpc.pc
 
 %changelog
-* Thu Aug 23 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.6.3-1
+* Wed Feb 27 2019 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.7.2-1
+- libntirpc 1.7.2 GA
+
+* Wed Feb 20 2019 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.7.1-1
+- rebuild for f31/rawhide
+
+* Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.7.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
+
+* Tue Oct 16 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.7.1-1
+- libntirpc 1.7.1 GA
+
+* Mon Sep 17 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.7.0-1
+- libntirpc 1.7.0 GA
+
+* Wed Aug 22 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.6.3-1
 - libntirpc 1.6.3 GA
 
-* Wed Mar 21 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.6.2-1
+* Fri Jul 13 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.6.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
+* Tue Mar 20 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.6.2-1
 - libntirpc 1.6.2 GA
+
+* Mon Feb 19 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.6.1-3
+- gcc BuildRoot
+
+* Thu Feb 15 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.6.1-2
+- ldconfig
 
 * Fri Feb 9 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.6.1-1
 - libntirpc 1.6.1 GA
 
-* Mon Jan 29 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.5.4-1
-- libntirpc 1.5.4 GA
+* Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.6.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
-* Thu Aug 10 2017 Niels de Vos <ndevos@redhat.com> - 1.5.3-1
-- Update to version 1.5.3
+* Wed Jan 17 2018 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.6.0-1
+- libntirpc 1.6.0 GA
 
-* Thu Jun 1 2017 Niels de Vos <ndevos@redhat.com> - 1.5.2-1
-- Update to version 1.5.2
+* Thu Oct 19 2017 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.5.3-4
+- libntirpc 1.5.3 PR https://github.com/nfs-ganesha/ntirpc/pull/85
 
-* Wed May 31 2017 Niels de Vos <ndevos@redhat.com> - 1.5.1-2
-- Rebuild for i686 architecture (was i386)
+* Thu Aug 03 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.5.3-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
 
-* Tue May 30 2017 Niels de Vos <ndevos@redhat.com> - 1.5.1-1
-- update libntirpc to 1.5.1 for NFS-Ganesha 2.5
+* Wed Jul 26 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.5.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
-* Wed Nov 23 2016 Niels de Vos <ndevos@redhat.com> - 1.4.3-2
-- rebuilt for CentOS 6, now i686 architecture (not i386)
+* Wed Jul 19 2017 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.5.3-1
+- libntirpc 1.5.3 GA
 
-* Tue Nov 22 2016 Niels de Vos <ndevos@redhat.com> - 1.4.3-1
-- update libntirpc to 1.4.3 for NFS-Ganesha 2.4
+* Tue May 30 2017 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.5.2-1
+- libntirpc 1.5.2 GA
 
-* Thu Nov 12 2015 Niels de Vos <ndevos@redhat.com> - 1.3.1-1
-- Rename back to libntirpc, Fedora will keep that name
+* Mon May 8 2017 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.5.1-1
+- libntirpc 1.5.1 GA
 
-* Fri Oct 30 2015 Niels de Vos <ndevos@redhat.com> - 1.3.1-1
-- Import from current Fedora Rawhide libntirpc package
-- Disable jemalloc usage
+* Fri Apr 21 2017 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.5.0-1
+- libntirpc 1.5.0 GA
+
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.4.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
+* Tue Oct 25 2016 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.4.3-1
+- libntirpc 1.4.3 GA
+
+* Tue Oct 25 2016 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.4.2-1
+- libntirpc 1.4.2 GA
+
+* Tue Sep 20 2016 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.4.1-1
+- libntirpc 1.4.1 GA
+
+* Mon Sep 19 2016 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.4.0-1
+- libntirpc 1.4.0 GA
+
+* Tue Sep 6 2016 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.4.0-0.4pre3
+- libntirpc 1.4.0-pre3, without jemalloc
+
+* Thu Aug 4 2016 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.4.0-0.3pre3
+- libntirpc 1.4.0-pre3
+
+* Mon Feb 29 2016 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.4.0-0.2pre2
+- libntirpc 1.4.0-pre2
+
+* Fri Feb 5 2016 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.4.0-0.1pre1
+- libntirpc 1.4.0-pre1, correct release
+
+* Fri Feb 5 2016 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.4.0-1pre1
+- libntirpc 1.4.0-pre1
+
+* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1.3.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
+* Wed Dec 9 2015 Kaleb S. KEITHLEY <kkeithle at redhat.com>
+- Requires: libtirpc for /etc/netconfig (most already have it)
+
+* Mon Oct 26 2015 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.3.1-1
+- libntirpc 1.3.1 GA
+
+* Fri Oct 9 2015 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.3.0-3
+- libntirpc 1.3.0 GA, w/ -DTIRPC_EPOLL=ON
+
+* Wed Sep 9 2015 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.3.0-2
+- libntirpc 1.3.0 GA, w/ correct top-level CMakeList.txt
+
+* Wed Sep 9 2015 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.3.0-1
+- libntirpc 1.3.0 GA
+
+* Thu Jul 16 2015 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.2.1-3
+- RHEL 6 finally has new enough cmake
+- use -isystem ... to ensure correct <rpc/rpc*.h> are used
+- ensure -DTIRPC_EPOLL is defined for correct evchan functionality
+
+* Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.2.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
+* Mon Mar 23 2015 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.2.1-1
+- Initial commit
