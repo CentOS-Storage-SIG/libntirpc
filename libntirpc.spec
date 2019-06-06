@@ -2,7 +2,7 @@
 %global		_hardened_build 1
 
 Name:		libntirpc
-Version:	1.7.3
+Version:	1.7.4
 Release:	1%{?dev:%{dev}}%{?dist}
 Summary:	New Transport Independent RPC Library
 License:	BSD
@@ -70,6 +70,9 @@ install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
 %{_libdir}/pkgconfig/libntirpc.pc
 
 %changelog
+* Wed Jun 5 2019 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.7.4-1
+- libntirpc 1.7.4 GA
+
 * Tue Apr 2 2019 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.7.3-1
 - libntirpc 1.7.3 GA
 
