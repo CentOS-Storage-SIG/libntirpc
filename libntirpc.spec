@@ -2,7 +2,7 @@
 %global		_hardened_build 1
 
 Name:		libntirpc
-Version:	1.7.4
+Version:	1.8.0
 Release:	1%{?dev:%{dev}}%{?dist}
 Summary:	New Transport Independent RPC Library
 Group:		System Environment/Libraries
@@ -13,6 +13,7 @@ Source0:	https://github.com/nfs-ganesha/ntirpc/archive/v%{version}/ntirpc-%{vers
 
 BuildRequires:	gcc cmake
 BuildRequires:	krb5-devel
+BuildRequires:	userspace-rcu-devel
 %if ( 0%{?fedora} && 0%{?fedora} > 27 )
 BuildRequires:  libnsl2-devel
 %endif
@@ -75,6 +76,9 @@ install -p -m 644 libntirpc.pc %{buildroot}%{_libdir}/pkgconfig/
 %{_libdir}/pkgconfig/libntirpc.pc
 
 %changelog
+* Fri Jun 7 2019 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.8.0-1
+- libntirpc 1.8.0 GA
+
 * Wed Jun 5 2019 Kaleb S. KEITHLEY <kkeithle at redhat.com> 1.7.4-1
 - libntirpc 1.7.4 GA
 
